@@ -15,7 +15,6 @@ class AgedBrieProduct extends AbstractProduct
     {
         // Update quality
         $this->item->quality++;
-
         $this->checkAndUpdateQualityByRange();
 
         // Update Sell in
@@ -23,6 +22,7 @@ class AgedBrieProduct extends AbstractProduct
 
         if ($this->item->sell_in < 0) {
             $this->item->quality++;
+            $this->checkAndUpdateQualityByRange();
         }
     }
 }
