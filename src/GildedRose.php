@@ -8,8 +8,8 @@ use App\Products;
  * Class GildedRose
  * @package App
  */
-final class GildedRose {
-
+final class GildedRose
+{
     protected const PRODUCTS = [
         'Aged Brie' => Products\AgedBrieProduct::class,
         'Backstage passes to a TAFKAL80ETC concert' => Products\BackstagePassesProduct::class,
