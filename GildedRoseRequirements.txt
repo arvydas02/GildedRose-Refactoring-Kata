@@ -36,3 +36,26 @@ for you).
 
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
 legendary item and as such its Quality is 80 and it never alters.
+
+-----------------------------------------------------------------------
+
+Quality updates:
+
+    Other products than 'Aged Brie' and 'Backstage passes to a TAFKAL80ETC concert'
+        if quality > 0 and not 'Sulfuras, Hand of Ragnaros' then quality -1
+        if product 'Sulfuras, Hand of Ragnaros' then quality should be 80 all the time
+        if Sell in (after update) < 0 and not 'Sulfuras, Hand of Ragnaros' then quality -1
+
+    If 'Aged Brie' or 'Backstage passes to a TAFKAL80ETC concert' products
+        if quality < 50 then quality +1
+        if Sell in (after update) < 0 and 'Aged Brie' then quality +1
+
+        if 'Backstage passes to a TAFKAL80ETC concert' and sell_in between 10 .. 5 then add extra quality +1
+        if 'Backstage passes to a TAFKAL80ETC concert' and sell_in <= 5 then add another extra quality +1
+    	if 'Backstage passes to a TAFKAL80ETC concert' and Sell in (after update) < 0  then quality - quality (it should be always  0 ??)
+
+Sell in
+    if products not 'Sulfuras, Hand of Ragnaros' then sell in -1 all the time, can go to minus values
+
+
+
