@@ -38,24 +38,6 @@ class GildedRoseTest extends TestCase {
                     ]
                 ]
             ,
-            'Item Sell In and Quality Values Reduced With Quality Equal to zero' =>
-                [
-                    new Item('Elixir of the Mongoose', 10, 0),
-                    [
-                        'name' => 'Elixir of the Mongoose',
-                        'sellIn' => 9,
-                        'quality' => 0,
-                    ]
-                ],
-            'Item Sell In and Quality Values Reduced With Quality Equal Lower than zero' =>
-                [
-                    new Item('Elixir of the Mongoose', 10, -1),
-                    [
-                        'name' => 'Elixir of the Mongoose',
-                        'sellIn' => 9,
-                        'quality' => -1,
-                    ]
-                ],
             'Item Sell In and Quality Values Reduced With Quality Max Value' =>
                 [
                     new Item('Elixir of the Mongoose', 10, 50),
@@ -102,15 +84,6 @@ class GildedRoseTest extends TestCase {
                         'quality' => 2,
                     ]
                 ],
-            'Item Aged Brie Sell In Value Reduce and Quality Value Increase With Quality Equal Lower than zero' =>
-                [
-                    new Item('Aged Brie', -1, -1),
-                    [
-                        'name' => 'Aged Brie',
-                        'sellIn' => -2,
-                        'quality' => 1,
-                    ]
-                ],
             'Item Aged Brie Sell In Value Reduce and Quality Value Increase With Quality Max Value' =>
                 [
                     new Item('Aged Brie', -1, 50),
@@ -118,6 +91,34 @@ class GildedRoseTest extends TestCase {
                         'name' => 'Aged Brie',
                         'sellIn' => -2,
                         'quality' => 50,
+                    ]
+                ],
+            // Specified Item Tests - Sulfuras, Hand of Ragnaros
+            'Item Sulfuras Sell In Value Do not Change and Quality Value always 80' =>
+                [
+                    new Item('Sulfuras, Hand of Ragnaros', 2, 20),
+                    [
+                        'name' => 'Sulfuras, Hand of Ragnaros',
+                        'sellIn' => 2,
+                        'quality' => 80,
+                    ]
+                ],
+            'Item Sulfuras Sell In Value Do not Change and Quality Value always 80 With Sell In days Equal to zero' =>
+                [
+                    new Item('Sulfuras, Hand of Ragnaros', 0, 1),
+                    [
+                        'name' => 'Sulfuras, Hand of Ragnaros',
+                        'sellIn' => 0,
+                        'quality' => 80,
+                    ]
+                ],
+            'Item Sulfuras Sell In Value Do not Change and Quality Value always 80 With Sell In days Lower than zero' =>
+                [
+                    new Item('Sulfuras, Hand of Ragnaros', -1, 100),
+                    [
+                        'name' => 'Sulfuras, Hand of Ragnaros',
+                        'sellIn' => -1,
+                        'quality' => 80,
                     ]
                 ],
         ];
