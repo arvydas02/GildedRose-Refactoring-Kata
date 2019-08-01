@@ -15,7 +15,6 @@ class CommonProduct extends AbstractProduct
     {
         // Update quality
         $this->item->quality--;
-        $this->checkAndUpdateQualityByRange();
 
         // Update Sell in
         $this->updateSellIn();
@@ -23,7 +22,8 @@ class CommonProduct extends AbstractProduct
         // Check if we need to decrease quality again
         if ($this->item->sell_in < 0) {
             $this->item->quality--;
-            $this->checkAndUpdateQualityByRange();
         }
+
+        $this->checkAndUpdateQualityByRange();
     }
 }

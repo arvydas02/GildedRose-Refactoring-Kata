@@ -26,13 +26,13 @@ class BackstagePassesProduct extends AbstractProduct
             $this->item->quality += 3;
         }
 
-        $this->checkAndUpdateQualityByRange();
-
         // Update Sell in
         $this->updateSellIn();
 
         if ($this->item->sell_in < 0) {
             $this->item->quality = 0;
         }
+
+        $this->checkAndUpdateQualityByRange();
     }
 }

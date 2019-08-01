@@ -15,14 +15,14 @@ class AgedBrieProduct extends AbstractProduct
     {
         // Update quality
         $this->item->quality++;
-        $this->checkAndUpdateQualityByRange();
 
         // Update Sell in
         $this->updateSellIn();
 
         if ($this->item->sell_in < 0) {
             $this->item->quality++;
-            $this->checkAndUpdateQualityByRange();
         }
+
+        $this->checkAndUpdateQualityByRange();
     }
 }
