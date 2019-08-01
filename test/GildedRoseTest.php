@@ -47,6 +47,24 @@ class GildedRoseTest extends TestCase {
                         'quality' => 49,
                     ]
                 ],
+            'Item Sell In and Quality Values Reduced With Quality Over Max Value' =>
+                [
+                    new Item('Elixir of the Mongoose', 10, 100),
+                    [
+                        'name' => 'Elixir of the Mongoose',
+                        'sellIn' => 9,
+                        'quality' => 50,
+                    ]
+                ],
+            'Item Sell In and Quality Values Reduced With Quality lower than zero' =>
+                [
+                    new Item('Elixir of the Mongoose', 10, -1),
+                    [
+                        'name' => 'Elixir of the Mongoose',
+                        'sellIn' => 9,
+                        'quality' => 0,
+                    ]
+                ],
             // Specified Item Tests - Aged Brie
             'Item Aged Brie Sell In Value Reduce and Quality Value Increase' =>
                 [
