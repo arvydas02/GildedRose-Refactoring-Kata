@@ -14,6 +14,7 @@ final class GildedRose {
         'Aged Brie' => Products\AgedBrieProduct::class,
         'Backstage passes to a TAFKAL80ETC concert' => Products\BackstagePassesProduct::class,
         'Sulfuras, Hand of Ragnaros' => Products\SulfurasProduct::class,
+        'Conjured Mana Cake' => Products\ConjuredProduct::class,
     ];
 
     private $items;
