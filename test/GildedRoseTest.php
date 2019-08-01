@@ -164,7 +164,7 @@ class GildedRoseTest extends TestCase {
     /**
      * @dataProvider itemProvider
      */
-    public function testItemQuality($item, $results)
+    public function testItemValues($item, $results)
     {
         $gildedRose = new GildedRose([$item]);
         $gildedRose->updateQuality();
