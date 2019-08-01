@@ -1,4 +1,4 @@
-Development Stets that was made
+Development Steps that was made
 ------------
 
 1. Analysed system and defined algorithm
@@ -14,6 +14,6 @@ Couple Notes
 ------------
 - Item class was untouched 
 - There was couple bugs in initial system:
-     - quality with negative value, it returned negative value when it should be 0
+     - quality with negative value, it returned negative value when it should be 0, including Sulfuras product
      - quality with over max value for Aged Brie and Backstage passes  products, it did not updated to max value and showed over
      
