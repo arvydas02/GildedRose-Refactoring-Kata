@@ -2,60 +2,54 @@
 
 namespace App;
 
+use App\Products;
+
+/**
+ * Class GildedRose
+ * @package App
+ */
 final class GildedRose {
 
-    protected const QUALITY_MAX = 50;
+    protected const PRODUCTS = [
+        'Aged Brie' => Products\AgedBrieProduct::class,
+        'Backstage passes to a TAFKAL80ETC concert' => Products\BackstagePassesProduct::class,
+        'Sulfuras, Hand of Ragnaros' => Products\SulfurasProduct::class,
+    ];
 
     private $items;
 
+    /**
+     * GildedRose constructor.
+     * @param $items
+     */
     public function __construct($items)
     {
         $this->items = $items;
     }
 
+    /**
+     * Main fuction that initiate items updates
+     */
     public function updateQuality(): void
     {
         foreach ($this->items as $item) {
-            if ($item->name !== 'Aged Brie' && $item->name !== 'Backstage passes to a TAFKAL80ETC concert') {
-                if ($item->quality > 0) {
-                    if ($item->name !== 'Sulfuras, Hand of Ragnaros') {
-                        $item->quality--;
-                    } else {
-                        $item->quality = 80;
-                    }
-                }
-            } else if ($item->quality < self::QUALITY_MAX) {
-                $item->quality++;
-                if ($item->name === 'Backstage passes to a TAFKAL80ETC concert'
-                    && $item->sell_in < 11
-                    && $item->quality < self::QUALITY_MAX) {
-                    $item->quality++;
-
-                    if ($item->sell_in < 6 && $item->quality < self::QUALITY_MAX) {
-                        $item->quality++;
-                    }
-                }
-            }
-
-            if ($item->name !== 'Sulfuras, Hand of Ragnaros') {
-                $item->sell_in--;
-            }
-            
-            if ($item->sell_in < 0) {
-                if ($item->name !== 'Aged Brie') {
-                    if ($item->name !== 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->quality > 0 && $item->name !== 'Sulfuras, Hand of Ragnaros') {
-                            $item->quality--;
-                        }
-                    } else {
-                        // Should be 0 because "The Quality of an item is never negative"
-                        $item->quality = 0;
-                    }
-                } else if ($item->quality < self::QUALITY_MAX) {
-                    $item->quality++;
-                }
-            }
+            $this->processItem($item);
         }
     }
-}
 
+    /**
+     * Process Item
+     * @param Item $item
+     */
+    protected function processItem(Item $item): void
+    {
+        if (!empty(self::PRODUCTS[$item->name])) {
+            $class = self::PRODUCTS[$item->name];
+        } else {
+            $class = Products\CommonProduct::class;
+        }
+
+        $product = new $class($item);
+        $product->update();
+    }
+}
